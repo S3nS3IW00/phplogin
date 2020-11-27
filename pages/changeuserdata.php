@@ -15,34 +15,25 @@
                 if(strlen($fullname) <= 50) {
                     $userdata = $_SESSION["userdata"];
 
-                    $done = true;
+                    $datapairs = array();
                     if($userdata["email"] != $email) {
-                        if(Account::ChangeUserdata($userdata["username"], "email", $email)) {
-                            $_SESSION["userdata"]["email"] = $email;
-                        } else {
-                            $errText = "Valami hiba történt!";
-                            $done = false;
-                        }
+                        $datapairs["email"] = $email;
                     }
                     if($userdata["age"] != $age) {
-                        if(Account::ChangeUserdata($userdata["username"], "age", $age)) {
-                            $_SESSION["userdata"]["age"] = $age;
-                        } else {
-                            $errText = "Valami hiba történt!";
-                            $done = false;
-                        }
+                        $datapairs["age"] = $age;
                     }
                     if($userdata["name"] != $fullname) {
-                        if(Account::ChangeUserdata($userdata["username"], "name", $fullname)) {
-                            $_SESSION["userdata"]["name"] = $fullname;
-                        } else {
-                            $errText = "Valami hiba történt!";
-                            $done = false;
-                        }
+                        $datapairs["name"] = $fullname;
                     }
 
-                    if($done) {
+                    if(Account::ChangeUserdata($userdata["username"], $datapairs)) {
+                        foreach($datapairs as $key => &$value) {
+                            $_SESSION["userdata"][$key] = $value;
+                        }
+
                         header("location: ../index.php");
+                    } else {
+                        $errText = "Valami hiba történt!";
                     }
                 } else {
                     $errText = "A név maximum 50 karakteres lehet!";

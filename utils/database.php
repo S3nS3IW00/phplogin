@@ -7,7 +7,7 @@ class DB {
         if ($stmt = $pdo->prepare($sql)) {
             
             foreach ($params as $key => &$value) {
-                $stmt->bindParam($key, $value, PDO::PARAM_STR);
+                $stmt->bindParam(":" . $key, $value, PDO::PARAM_STR);
             }
 
             try {
@@ -31,7 +31,7 @@ class DB {
         if ($stmt = $pdo->prepare($sql)) {
 
             foreach ($params as $key => &$value) {
-                $stmt->bindParam($key, $value, PDO::PARAM_STR);
+                $stmt->bindParam(":" . $key, $value, PDO::PARAM_STR);
             }
 
             try {

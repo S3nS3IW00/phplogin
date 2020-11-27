@@ -14,7 +14,9 @@
                 if($totable) {
                     $printText .= "<table><tr><th>Páratlan</th><th>Páros</th></tr>";
                     for ($i = $from; $i <= $to; $i += 2) {
-                        $printText .= "<tr><td>" . $i . "</td><td>" . ($i + 1) . "</td></tr>";
+                        $printText .= "<tr><td>" . $i . "</td>";
+                        if($i + 1 < $to) $printText .= "<td>" . ($i + 1) . "</td>";
+                        $printText .= "</tr>";
                     }
                     $printText .= "</table>";
                 } else {

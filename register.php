@@ -66,8 +66,8 @@
             <small id="errorHelp" style="color:red;" class="form-text text-muted"><?php echo $errText ?></small>
         </div>
         <div class="container">
-            <button type="submit" name="login" class="btn btn-primary">Bejelentkezés</button>
-            <button type="submit" name="register" class="btn btn-secondary">Regisztráció</button>
+            <button type="submit" name="register" class="btn btn-primary">Regisztráció</button>
+            <button type="submit" name="login" class="btn btn-secondary">Bejelentkezés</button>
         </div>
     </form>
 </body>
