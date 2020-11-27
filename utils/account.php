@@ -44,7 +44,6 @@ class Account {
             $i++;
         }
         $sql .= " WHERE username = :username;";
-        print($sql);
         $datapairs["username"] = $username;
         $result = DB::Update($sql, $datapairs);
         return $result;
