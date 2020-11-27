@@ -26,7 +26,7 @@ class Account {
     }
 
     public static function ChangePassword($username, $password) {
-        $result = DB::Update("UPDATE users SET password = :password WHERE username = :username;", array("username" => $username, "password" => $password));
+        $result = DB::Update("UPDATE users SET password = :password WHERE username = :username;", array("username" => $username, "password" => password_hash($password, PASSWORD_DEFAULT)));
         return $result;
     }
 
