@@ -23,7 +23,7 @@
                 $errText = "Minden mező kitöltése kötelező!";
             }
         } else if(isset($_POST["register"])) {
-            header("location: pages/register.php");
+            header("location: register.php");
         }
     }
 ?>
